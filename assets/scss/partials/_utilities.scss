@@ -1,0 +1,42 @@
+/*added by gutenberg editor*/
+/* -- gutenberg editor styles -- */
+.has-s-font-size, .has-s-font-size li, .has-s-font-size strong{
+    font-size: var(--step--1);
+}
+.has-default-font-size, .has-default-font-size li, .has-default-font-size strong{
+    font-size: var(--step-0);
+}
+.has-m-font-size, .has-m-font-size li, .has-m-font-size strong {
+    font-size: var(--step-1);
+}
+.has-l-font-size, .has-l-font-size li, .has-l-font-size strong {
+    font-size: var(--step-2);
+}
+.has-xl-font-size, .has-xl-font-size li, .has-xl-font-size strong{
+    font-size: var(--step-4);
+}
+.has-xxl-font-size, .has-xxl-font-size li, .has-xxl-font-size strong{
+    font-size: var(--step-6);
+}
+.has-xxxl-font-size, .has-xxxl-font-size li, .has-xxxl-font-size strong{
+    font-size: var(--step-8);
+}
+
+/*colours set in functions/setup.php*/
+$colors: 
+primary,
+secondary, 
+lgrey,
+dgrey,
+black,
+white,
+body;
+
+@each $color in $colors {
+	.has-#{$color}-background-color {
+		background-color: var(--color-#{$color});
+	}
+	.has-#{$color}-color {
+		color: var(--color-#{$color});
+	}
+}

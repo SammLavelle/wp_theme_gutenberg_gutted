@@ -1,0 +1,39 @@
+.wp-block{
+    width: 100%;
+    max-width: 1800px;
+    margin: 0 auto;
+}
+.wp-block:not(div){
+    margin-bottom: 10px;
+}
+.is-root-container > .wp-block{
+    margin: 40px auto;
+}
+.block{
+    max-width: 100%;
+    padding: 20px;
+    border: 1px dashed black;
+}
+
+.block__columns > div > .block-editor-block-list__layout, .block__image-text > div > .block-editor-block-list__layout{
+    display: flex;
+    gap: 20px;
+}
+.block__panel{
+    box-sizing:border-box;
+    flex-grow: 1;
+}
+.has-background-image > img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.wp-block[data-title="Panel"] div:not(.wp-block-buttons, .wp-block-button){
+    height: 100%;
+}
+.wp-block-button{
+    width: auto;
+}

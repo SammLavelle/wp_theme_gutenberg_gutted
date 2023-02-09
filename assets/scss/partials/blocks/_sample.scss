@@ -1,0 +1,29 @@
+.block__columns{
+    display: flex;
+    gap: var(--space-gap);
+    align-items: stretch;
+    .block__panel{
+        flex-basis: 0;
+        flex-grow: 1;
+    }
+}
+.block__image-text{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-gap);
+    align-items: stretch;
+}
+.block__image--crop, .has-background-image{
+    position: relative;
+    >img{
+        @include cover;
+    }
+}
+.block__panel.has-background{
+    padding: var(--space-b);
+}
+
+.overlay{
+    @include cover;
+    opacity: 0.5;
+}

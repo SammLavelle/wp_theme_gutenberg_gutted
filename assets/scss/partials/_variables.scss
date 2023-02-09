@@ -24,10 +24,14 @@
     --font-weight-bold: 700;
 
     --font-body: var(--font-sans);
-    --font-heading: var(--font-serif);
+    --font-heading: var(--font-sans);
 
     --font-line-height-body: 1.5em;
     --font-line-height-heading: 1.2em;
+
+    --space-margin-heading-body: 30px;
+    --space-margin-body: 20px;
+    --space-margin-body-heading: 40px;
     
     --button-padding: 15px 25px;
     --button-font: var(--font-sans);
@@ -82,17 +86,22 @@
 }
 /*-- UNIVERSAL SPACING --*/
 :root{
-
     /*left & right spacing*/
     --space-gutter: var(--space-b); /* space between edge and content */
-    --space-gap: var(--space-b); /* space between cards, panels, or columns*/
+   
+    --space-gap: var(--space-b); /* space between columns/cards, logo ticker */
+    
+    --space-margin-row: var(--space-d); /* between top level elements */
+    --space-padding-row: var(--space-d); /* within elements with background colours */
 
-    /*top & bottom spacing*/
-    --space-row-margin: var(--space-g); /* between rows */
-    --space-row-padding: var(--space-g); /* within rows with background colours */
+    /*space between elements*/
+    --space-margin-heading-body: 1.5rem;
+    --space-margin-body: 1.5rem;
+    --space-margin-body-heading: 2rem;
+    --space-margin-heading-div: var(--space-b);
 
-    /*panels & cards*/
     --space-panel-padding: var(--space-b); /*padding for panels and cards */
+    --space-panel-padding-small: var(--space-a); /*padding for panels and cards */
 
     --width-full-inset: calc(100% - var(--space-gutter) * 2);
     --width-wide: 90rem; /*16px base == 1440px*/
@@ -101,8 +110,13 @@
     --width-text-inset:  calc(var(--width-text) - var(--space-gutter) * 2);
     --width-narrow: 640px;
 
+    --space-text-alignment: max(var(--space-gutter), calc((100% - var(--width-wide-inset)) / 2));
+
+
     /*other*/
     --transition: 0.2s ease-in-out;
+
+    --color-error: #c10808;
 }
 
 /* -- mixins  -- */
@@ -114,5 +128,5 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
+}
 

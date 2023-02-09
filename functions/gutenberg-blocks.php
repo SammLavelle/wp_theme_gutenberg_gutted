@@ -22,8 +22,8 @@ function misha_allowed_block_types( $allowed_blocks ) {
 		//'core/html',
 		//'core/preformatted',
 		//'core/pullquote',
-		//'core/buttons',
-		//'core/button',
+		'core/buttons',
+		'core/button',
 		//'core/columns',
 		//'core/media-text',
 		//'core/more',
@@ -73,7 +73,31 @@ function misha_allowed_block_types( $allowed_blocks ) {
 		//'core-embed/tumblr',
 		//'core-embed/videopress',
 		//'core-embed/wordpress-tv',
-		'acf/sample',
+		'acf/columns',
+		'acf/panel',
+		'acf/image',
+		'acf/image-text',
+		'acf/banner'
 	);
  
 }
+
+function myplugin_register_template() {
+    $post_type_object = get_post_type_object( 'post' );
+    $post_type_object->template = [
+        ['acf/banner'],
+		['core/heading', [
+			'level' => 1,
+			'placeholder' => 'Title Goes Here',
+			'textAlign' => 'center',
+
+		]],
+		['core/paragraph', [
+			'placeholder' => 'Main Content Goes Here',
+			'align' => 'center',
+
+		]],
+        ['acf/image-text']
+    ];
+}
+add_action( 'init', 'myplugin_register_template' );

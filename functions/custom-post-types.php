@@ -32,3 +32,4 @@ function create_post_type_custom()
     ));
 }
 //add_action('init', 'create_post_type_custom');
+

@@ -14,6 +14,8 @@ h1, h2, h3, h4, h5, h6{
 	line-height: var(--font-line-height-heading);
 	margin-top: 0;
 	margin-bottom: var(--space-margin-heading-body);
+	color: inherit;
+	position: relative;
 }
 h1{
 	font-size: var(--step-7)
@@ -36,6 +38,7 @@ h6{
 p{
 	margin-top: 0;
 	margin-bottom: var(--space-margin-body);
+	position: relative;
 	+ *:is(h1, h2, h3, h4, h5, h6){
 		margin-top: var(--space-margin-body-heading);
 	}
@@ -54,6 +57,19 @@ ul, ol{
 		margin-bottom: 0;
 	}
 }
+:is(h1, h2, h3, h4, h5, h6, p, ul, ol){
+	max-width: var(--width-text);
+}
+main > :is(h1, h2, h3, h4, h5, h6, p, ul, ol){
+	max-width: var(--width-text-inset);
+}
+main > :is(h1, h2, h3, h4, h5, h6, p, ul, ol):not(.has-text-align-center){
+	margin-left: var(--space-text-alignment);
+}
+:is(h1, h2, h3, h4, h5, h6, p, ul, ol).has-text-align-center{
+	margin-left: auto;
+	margin-right: auto;
+}
 li{
 	margin-top: 0;
 	margin-bottom: var(--space-margin-body);
@@ -63,8 +79,8 @@ li{
 	}
 }
 blockquote{
-	margin-top: calc(var(--space-margin-body) * 2);
-	margin-bottom: calc(var(--space-margin-body) * 2);
+	margin: calc(var(--space-margin-body) * 2) 0;
+	max-width: 75%;
 	&:first-child{
 		margin-top: 0;
 	}
@@ -73,9 +89,9 @@ blockquote{
 	}
 }
 a{
-	color: var(--color-primary);
 	text-decoration: underline;
     position: relative;
+	color: var(--color-text);
 }
 img{
 	width: auto;
@@ -84,3 +100,6 @@ img{
     object-fit: cover;
 }
 
+.wp-block-button__link{
+	display: block;
+}

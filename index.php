@@ -12,6 +12,6 @@
 			</figure>  	
 		</a>
 	<?php endwhile; endif?>
-	<nav class="pagination"><?php bnine_pagination(); ?></nav>
+	<nav class="pagination"><?php custom_pagination(); ?></nav>
 </main>
 <?php get_footer(); ?>

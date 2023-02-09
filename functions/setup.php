@@ -7,12 +7,9 @@ function custom_setup()
 
     add_theme_support('title-tag'); //allows Yoast to manage title tags
 
-    //add_theme_support( 'automatic-feed-links' ); // Enables post and comment RSS feed links to head
-
     add_theme_support( 'custom-logo' );
 
     add_theme_support('post-thumbnails');
-    //add_theme_support( 'post-thumbnails', array( 'post' ) ); // Posts only
 
     add_image_size('large', 1280, '', true); // Large Thumbnail
     add_image_size('medium_large', 1024, '', true); // Small Thumbnail
@@ -68,7 +65,6 @@ function disable_wp_emojicons()
     remove_filter('wp_mail', 'wp_staticize_emoji_for_email');
     remove_filter('the_content_feed', 'wp_staticize_emoji');
     remove_filter('comment_text_rss', 'wp_staticize_emoji');
-    //add_filter('tiny_mce_plugins', 'disable_emojicons_tinymce');
     add_filter('emoji_svg_url', '__return_false');
 }
 add_action('init', 'disable_wp_emojicons');
@@ -106,7 +102,7 @@ function enqueue_scripts_styles()
     wp_dequeue_style( 'wp-block-library-theme' );
     wp_register_style('gfonts', 'https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Open+Sans:wght@400;700&display=swap', [], null);
     wp_enqueue_style('gfonts');
-    wp_enqueue_style('b9-css', get_template_directory_uri() . '/assets/css/style.min.css');
+    wp_enqueue_style('custom-css', get_template_directory_uri() . '/assets/css/style.min.css');
 
     wp_deregister_script('jquery');
     wp_enqueue_script('functions-js', get_template_directory_uri() . '/assets/functions.js', array(), '1.0.0', true);
@@ -200,67 +196,95 @@ add_theme_support(
     )
 );
 
+/*add color section to customiser*/
+function customize_register( $wp_customize ) {
+    $wp_customize->add_section( 
+        'gutenberg_color_settings', array(
+            'title' => __( 'Gutenberg Color Options' ),
+            'priority'   => 20,
+        ) 
+    );
+  }
+add_action( 'customize_register', 'customize_register' );
 /* Customiser modifications */
 function customize_additional_settings($wp_customize) {
     /* Add settings for the site colours */
-    $wp_customize->add_setting('custom_primary_color', array(
-      'default' => '#941C3F',
+    $wp_customize->add_setting('custom_1_color', array(
+      'default' => '#dd3333',
     ));
-    $wp_customize->add_setting('custom_secondary_color', array(
-      'default' => '#003e42',
+    $wp_customize->add_setting('custom_2_color', array(
+      'default' => '#dd9933',
     ));
-    $wp_customize->add_setting('custom_tertiary_color', array(
-      'default' => '#003e42',
+    $wp_customize->add_setting('custom_3_color', array(
+      'default' => '#eeee22',
     ));
-    $wp_customize->add_setting('custom_text_color', array(
-      'default' => '#474747',
+    $wp_customize->add_setting('custom_4_color', array(
+      'default' => '#81d742',
     ));
-    $wp_customize->add_setting('custom_light_grey', array(
-      'default' => '#f3f3f6',
+    $wp_customize->add_setting('custom_5_color', array(
+      'default' => '#1e73be',
     ));
-    $wp_customize->add_setting('custom_dark_grey', array(
-      'default' => '#474747',
+    $wp_customize->add_setting('custom_6_color', array(
+      'default' => '#8224e3',
     ));
   
-    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'custom_primary_color', array(
-        'label' => 'Primary Color',
-        'section' => 'title_tagline',
-        'settings' => 'custom_primary_color',
-  
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize,
+     'custom_1_color',
+      array(
+        'label' => 'Custom Color 1',
+        'section' => 'gutenberg_color_settings',
+        'settings' => 'custom_1_color',
+    )));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize,
+     'custom_2_color',
+      array(
+        'label' => 'Custom Color 2',
+        'section' => 'gutenberg_color_settings',
+        'settings' => 'custom_2_color',
+    )));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize,
+     'custom_3_color',
+      array(
+        'label' => 'Custom Color 3',
+        'section' => 'gutenberg_color_settings',
+        'settings' => 'custom_3_color',
+    )));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize,
+     'custom_4_color',
+      array(
+        'label' => 'Custom Color 4',
+        'section' => 'gutenberg_color_settings',
+        'settings' => 'custom_4_color',
+    )));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize,
+     'custom_5_color',
+      array(
+        'label' => 'Custom Color 5',
+        'section' => 'gutenberg_color_settings',
+        'settings' => 'custom_5_color',
+    )));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize,
+     'custom_6_color',
+      array(
+        'label' => 'Custom Color 6',
+        'section' => 'gutenberg_color_settings',
+        'settings' => 'custom_6_color',
     )));
   
-    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'custom_secondary_color', array(
-        'label' => 'Secondary Color',
-        'section' => 'title_tagline',
-        'settings' => 'custom_secondary_color',
-    )));
-    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'custom_text_color', array(
-      'label' => 'Text Color',
-      'section' => 'title_tagline',
-      'settings' => 'custom_text_color',
-  )));
-      $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'custom_light_grey', array(
-          'label' => 'Light Grey',
-          'section' => 'title_tagline',
-          'settings' => 'custom_light_grey',
-      )));
-      $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'custom_dark_grey', array(
-          'label' => 'Dark Grey',
-          'section' => 'title_tagline',
-          'settings' => 'custom_dark_grey',
-      )));
+    
   }
   
   add_action('customize_register', 'customize_additional_settings');
   
   /* Create a custom colour object */
   $colours = (object) [
-      "primary" => get_theme_mod('custom_primary_color', '#941C3F'),
-      "secondary" => get_theme_mod('custom_secondary_color', '#003e42'),
-      "text" => get_theme_mod('custom_text_color', '#474747'),
+      "custom1" => get_theme_mod('custom_1_color', '#dd3333'),
+      "custom2" => get_theme_mod('custom_2_color', '#dd9933'),
+      "custom3" => get_theme_mod('custom_3_color', '#eeee22'),
+      "custom4" => get_theme_mod('custom_4_color', '#81d742'),
+      "custom5" => get_theme_mod('custom_5_color', '#1e73be'),
+      "custom6" => get_theme_mod('custom_6_color', '#8224e3'),
       "white" => "#ffffff",
-      "lgrey" => get_theme_mod('custom_light_grey', '#f3f3f6'),
-      "dgrey" => get_theme_mod('custom_dark_grey', '#474747'),
       "black" => "#000000"
       
   ];
@@ -272,14 +296,41 @@ function customize_additional_settings($wp_customize) {
   {
     echo "
     <style>
-      :root{
-        --color-primary:" . $colours->primary . ";
-        --color-secondary:" . $colours->secondary . ";
-        --color-body:" . $colours->text . ";
-        --color-white:" . $colours->white . ";
-        --color-lgrey:" . $colours->lgrey . ";
-        --color-dgrey:" . $colours->dgrey . ";
-        --color-black:" . $colours->black . ";
+      .has-custom1-color{
+        color: " . $colours->custom1 . ";
+      }
+      .has-custom2-color{
+        color: " . $colours->custom2 . ";
+      }
+      .has-custom3-color{
+        color: " . $colours->custom3 . ";
+      }
+      .has-custom4-color{
+        color: " . $colours->custom4 . ";
+      }
+      .has-custom5-color{
+        color: " . $colours->custom5 . ";
+      }
+      .has-custom6-color{
+        color: " . $colours->custom6 . ";
+      }
+      .has-custom1-background-color{
+        background-color: " . $colours->custom1 . ";
+      }
+      .has-custom2-background-color{
+        background-color: " . $colours->custom2 . ";
+      }
+      .has-custom3-background-color{
+        background-color: " . $colours->custom3 . ";
+      }
+      .has-custom4-background-color{
+        background-color: " . $colours->custom4 . ";
+      }
+      .has-custom5-background-color{
+        background-color: " . $colours->custom5 . ";
+      }
+      .has-custom6-background-color{
+        background-color: " . $colours->custom6 . ";
       }
     </style>
    ";
@@ -288,29 +339,39 @@ function customize_additional_settings($wp_customize) {
   /* Add custom colours to gutenberg editor */
   add_theme_support('editor-color-palette', array(
       array(
-          'name' => esc_html__('Primary', 'custom'),
-          'slug' => 'primary',
-          'color' => $colours->primary,
+          'name' => esc_html__('Custom Colour 1', 'custom'),
+          'slug' => 'custom1',
+          'color' => $colours->custom1,
       ),
       array(
-          'name' => esc_html__('Secondary', 'custom'),
-          'slug' => 'secondary',
-          'color' => $colours->secondary,
+          'name' => esc_html__('Custom Colour 2', 'custom'),
+          'slug' => 'custom2',
+          'color' => $colours->custom2,
+      ),
+      array(
+          'name' => esc_html__('Custom Colour 3', 'custom'),
+          'slug' => 'custom3',
+          'color' => $colours->custom3,
+      ),
+      array(
+          'name' => esc_html__('Custom Colour 4', 'custom'),
+          'slug' => 'custom4',
+          'color' => $colours->custom4,
+      ),
+      array(
+          'name' => esc_html__('Custom Colour 5', 'custom'),
+          'slug' => 'custom5',
+          'color' => $colours->custom5,
+      ),
+      array(
+          'name' => esc_html__('Custom Colour 6', 'custom'),
+          'slug' => 'custom6',
+          'color' => $colours->custom6,
       ),
       array(
           'name'  => esc_html__('White', 'custom'),
           'slug'  => 'white',
           'color' => $colours->white,
-      ),
-      array(
-          'name'  => esc_html__('Light Grey', 'custom'),
-          'slug'  => 'lgrey',
-          'color' => $colours->lgrey,
-      ),
-      array(
-          'name'  => esc_html__('Dark grey', 'custom'),
-          'slug'  => 'dgrey',
-          'color' => $colours->dgrey,
       ),
       array(
           'name'  => esc_html__('Black', 'custom'),
@@ -416,3 +477,8 @@ function new_excerpt_more($more)
 }
 add_filter('excerpt_more', 'new_excerpt_more');
 
+add_action( 'admin_init', 'wpdocs_add_editor_styles' );
+function wpdocs_add_editor_styles() {
+  add_theme_support( 'editor-styles' );
+  add_editor_style( 'editor.css' );
+}

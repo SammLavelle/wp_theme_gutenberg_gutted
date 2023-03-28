@@ -1,0 +1,47 @@
+/*
+    * Font sizes
+    * https://utopia.fyi/type/calculator?c=320,16,1.125,1140,16,1.25,8,1,&s=0.5,2|3|4|5|6|8,s-l 
+*/
+:root {
+    // 16px
+    --step-0: clamp(1rem, 1rem + 0vw, 1rem);
+    // 20px        
+    --step-1: clamp(1.13rem, 1.08rem + 0.24vw, 1.25rem);
+    // 25px
+    --step-2: clamp(1.27rem, 1.15rem + 0.58vw, 1.56rem);
+    // 31px
+    --step-3: clamp(1.42rem, 1.22rem + 1.03vw, 1.95rem);
+    // 39px
+    --step-4: clamp(1.6rem, 1.27rem + 1.64vw, 2.44rem);
+    // 49px
+    --step-5: clamp(1.8rem, 1.31rem + 2.44vw, 3.05rem);
+    // 61px
+    --step-6: clamp(2.03rem, 1.33rem + 3.49vw, 3.82rem);
+}
+
+@font-face {
+    font-family: 'OpenSans';
+    src: url('../fonts/OpenSans-VariableFont_wdth_wght.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --font-heading: 'OpenSans', sans-serif;
+    --font-body: 'OpenSans', sans-serif;
+
+    --font-weight-heading: 400;
+    --font-weight-body: 400;
+    --font-weight-strong: 700;
+
+    --font-size-h1: var(--step-6);
+    --font-size-h2: var(--step-5);
+    --font-size-h3: var(--step-4);
+    --font-size-h4: var(--step-3);
+    --font-size-h5: var(--step-2);
+    --font-size-h6: var(--step-1);
+    --font-size-body: var(--step-0);
+
+    --line-height-heading: 1.3em;
+    --line-height-body: 1.5em;
+}

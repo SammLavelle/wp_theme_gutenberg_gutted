@@ -1,0 +1,33 @@
+/* ==========================================================================
+    Structure
+   ========================================================================== */
+.columns {
+    display: flex;
+    gap: var(--gap);
+}
+/* Sets columns to take up an equal amount of space */
+.column{
+    flex-basis: 100%;
+}
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+
+/* Turn into a 50/50 grid on tablet  */
+@media(max-width: 1024px) {
+    .columns {
+        flex-wrap: wrap;
+    }
+    .column{
+        flex-basis: calc(50% - var(--gap)/2);
+        flex-grow: 0;
+    }
+}
+
+/* Stack 'em on mobile */
+@media(max-width: 768px) {
+    .column{
+        flex-basis: 100%;
+    }
+}

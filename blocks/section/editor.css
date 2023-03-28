@@ -1,0 +1,20 @@
+.section{
+    width: 100%;
+    max-width: 100%;
+    border: 2px dashed black;
+    padding: var(--padding);
+    position: relative;
+    background-color: inherit;
+}
+.section__media > .overlay{
+    background-color: inherit;
+    opacity: 0.5
+}
+.section__media > img, .section__media > .overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

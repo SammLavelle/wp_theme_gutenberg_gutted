@@ -1,0 +1,25 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 2,
+    "name": "acf/text-area",
+    "title": "Text Area",
+    "category": "text",
+    "icon": "text",
+    "keywords": [
+        "text",
+        "panel"
+    ],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "render.php"
+    },
+    "supports": {
+        "align": false,
+        "color": {
+            "text": true,
+            "background": true
+        },
+		"jsx": true
+    },
+    "style": "file:style.css"
+}

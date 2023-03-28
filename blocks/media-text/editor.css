@@ -1,0 +1,8 @@
+
+.media-text{
+    gap: var(--padding);
+}
+.media-text__text{
+    padding: var(--padding);
+    border: 1px dashed black;
+}

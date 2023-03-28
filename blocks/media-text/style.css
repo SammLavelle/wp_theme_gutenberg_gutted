@@ -1,0 +1,140 @@
+/* ==========================================================================
+   Core Layout Settigs
+   ========================================================================== */
+.media-text {
+    display: grid;
+    grid-template-areas: "text media";
+    grid-template-columns: 1fr 1fr;
+    gap: var(--gap);
+}
+.media-text--reversed {
+    grid-template-areas: "media text";
+}
+
+.media-text__text {
+    padding-top: var(--padding-banner);
+    padding-bottom: var(--padding-banner);
+    grid-area: text;
+}
+
+.media-text__media {
+    grid-area: media;
+    display: block;
+    width: 100%;
+}
+.media-text__media img{
+    display: block;
+}
+
+/* ==========================================================================
+   Full width block
+   * Bring the text in to line up with the left and right of the wide-width.
+   * This is done to reduce the length of text down to a comfortable level, and matches the wide-width for aesthetics.
+   * Only applicable to top-level blocks (children of full-width background panels)
+   ========================================================================== */
+.section > .media-text.width--full .media-text__text__inner{
+    max-width: min(100%, calc(var(--width-default)/2 - var(--gap)/2));
+    margin-left: auto;
+    padding-left: var(--gutter);
+}
+.section > .media-text--reversed.width--full .media-text__text__inner{
+    margin-left: 0;
+    margin-right: auto;
+    padding-left: 0;
+    padding-right: var(--gutter);
+}
+
+/* ==========================================================================
+   With backgrounds
+   * remove the gap between the panels, add padding to the text panel
+   ========================================================================== */
+.media-text.has-background.width--full{
+    padding: var(--padding-banner) var(--padding-panel);
+}
+.media-text--media-crop.has-background{
+    padding: 0!important;
+    gap: 0;
+}
+.media-text--media-crop.has-background .media-text__text__inner{
+    padding: var(--padding-panel);
+}
+.media-text--media-crop.has-background.width--full .media-text__text__inner{
+    padding: var(--padding-banner) var(--padding-panel);
+    max-width: min(100%, calc(var(--width-default)/2));
+}
+main.section >:is(.width--full.has-background, .media-text--media-crop.width--full) + :is(.width--full.has-background, .media-text--media-crop.width--full),
+main>.section >:is(.width--full.has-background, .media-text--media-crop.width--full) + :is(.width--full.has-background, .media-text--media-crop.width--full) {
+    margin-top: calc(var(--margin-row) * -1);
+}
+
+/* ==========================================================================
+   Customisations
+   ========================================================================== */
+
+/* Adjust vertical alignment of text */
+.media-text--center {
+    align-items: center;
+}
+
+.media-text--bottom {
+    align-items: end;
+}
+
+.media-text--stretch {
+    align-items: stretch;
+}
+
+.media-text--top {
+    align-items: start;
+}
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+/* Stack 'em on tablet and smaller */
+@media(max-width: 1024px) {
+    .media-text {
+        grid-template-areas: "media" "text"!important;
+        grid-template-columns: 1fr;
+    }
+    .media-text__text__inner{
+        margin: 0!important;
+    }
+    .media-text__media  img {
+        position: relative;
+        height: auto;
+        width: 100%;
+    }
+    :is(main, main > .alignfull) > .media-text.width--full .media-text__text__inner{
+        padding-left: var(--gutter)!important;
+        padding-right: var(--gutter)!important;
+    }
+}
+/* Image is cropped to match height of text */
+.image img {
+    width: 100%;
+    height: auto;
+}
+
+.image--crop {
+    position: relative;
+    min-height: 200px;
+    align-self: stretch;
+}
+
+.image--crop img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Clip image to circle */
+.image--circle img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    object-fit: cover;
+}

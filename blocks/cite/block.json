@@ -1,0 +1,19 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 2,
+    "name": "acf/cite",
+    "title": "Citation",
+    "icon": "format-quote",
+    "parent": ["acf/quote"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "render.php"
+    },
+    "supports": {
+        "align": false,
+        "color": {
+            "text": false,
+            "background": false
+        }
+    }
+}

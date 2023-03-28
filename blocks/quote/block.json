@@ -1,0 +1,21 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 2,
+    "name": "acf/quote",
+    "title": "Quote",
+    "icon": "format-quote",
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "render.php"
+    },
+    "supports": {
+        "align": false,
+        "color": {
+            "text": false,
+            "background": false
+        },
+		"jsx": true
+    },
+    "style": "file:style.css",
+    "editorStyle": "file:editor.css"
+}

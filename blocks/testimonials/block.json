@@ -1,0 +1,29 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 2,
+    "name": "acf/testimonials",
+    "title": "Testimonials",
+    "category": "text",
+    "icon": "testimonial",
+    "keywords": [
+        "quote",
+        "testimonial"
+    ],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "render.php"
+    },
+    "supports": {
+        "align": false,
+        "multiple": false,
+        "color": {
+            "text": false,
+            "background": false
+        },
+		"jsx": true
+    },
+    "style": [ "file:style.css" ],
+    "editorStyle": "file:editor.css",
+    "viewScript": [ "testimonial-carousel-script"]
+
+}

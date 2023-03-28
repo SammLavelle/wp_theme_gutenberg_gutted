@@ -1,0 +1,23 @@
+.section {
+    position: relative;
+}
+
+.section.has-background-image .overlay{
+    opacity: 0.3;
+}
+
+.section__media img,
+.section .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.section >:not(.section__media){
+    position: relative;
+}
+.section__media + .block{
+    margin-top: 0!important;
+}

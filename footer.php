@@ -1,5 +1,5 @@
-<footer>
-
+<footer class="section">
+<?php block_template_part( 'footer' ); ?>
 </footer>
 <?php wp_footer(); ?>
 </body>

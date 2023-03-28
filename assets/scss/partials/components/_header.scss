@@ -1,0 +1,247 @@
+/* -- SKIP TO CONTENT -- */
+.skip-to-content {
+    top: 0;
+    background: var(--color-dgrey);
+    height: 62px;
+    left: 0;
+    display: flex;
+    padding: 8px;
+    position: absolute;
+    transform: translateY(-100%);
+    transition: transform 0.3s;
+    z-index: 10000;
+    color: white;
+    align-items: center;
+    width: 200px;
+    justify-content: center;
+}
+.skip-to-content:focus {
+    transform: translateY(0%);
+}
+
+/* ==========================================================================
+   Basic Layout:
+   ---
+   Contact details
+   Logo // Navigation
+   ---
+   ========================================================================== */
+header{
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    //sets menu colour in front of mobile navigation
+    &:before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: inherit;
+    }
+}
+.header__top{
+    position: relative;
+    z-index: 2;
+    background-color: var(--color-secondary);
+    &__inner{
+        display: flex;
+        justify-content: flex-end;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+}
+.header__main{
+    &__inner{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .custom-logo{
+        height: auto;
+        width: auto;
+        max-height: 60px;
+        max-width: 40vw;
+        position: relative;
+        z-index: 2;
+    }
+}
+
+/* ==========================================================================
+   Colors
+   ========================================================================== */
+header{
+    background-color: var(--color-primary);
+    *{
+        color: white;
+        fill: white;
+    }
+}
+
+/* ==========================================================================
+   Nav - desktop
+   ========================================================================== */
+//structure
+#menu-main-menu{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--space-b);
+    padding: 0;
+    margin: 0;
+    li{
+        //removing any default spacing
+        padding: 0;
+        margin: 0;
+        position: relative;
+    }
+}
+
+//style
+#menu-main-menu{
+    list-style-type: none;
+    a{
+        padding: 5px;
+        text-decoration: none;
+    }
+}
+//hover & active styles
+#menu-main-menu{
+    a:hover, a:focus{
+        text-decoration: underline;
+    }
+    li.current-menu-item > a{
+        text-decoration: underline;
+    }
+}
+.header__burger{
+    display: none;
+}
+/* ==========================================================================
+   Sub Nav - desktop
+   ========================================================================== */
+//structure
+#menu-main-menu .sub-menu{
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 120%;
+    padding: 0;
+    margin: 0;
+}
+//style
+#menu-main-menu .sub-menu{
+    //creates a visual gap between parent item and top of menu item, while maintaining hover-effect in theat gap
+    border-top: 20px solid transparent;
+    list-style-type: none;
+    li, a{
+        width: 100%;
+    }
+    a{
+        display: block;
+        background-color: white;
+        color: var(--color-text);
+        white-space: nowrap;
+        padding: 10px 30px;
+
+    }
+}
+#menu-main-menu{
+    li:hover{
+        .sub-menu{
+            display: block;
+        }
+    }
+}
+
+/* ==========================================================================
+   Nav - mobile
+   ========================================================================== */
+@media(max-width: $lg){
+    //structure
+    #menu-main-menu{
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        overflow-y: auto;
+        background-color: var(--color-secondary);
+        width: 300px;
+        z-index: -1;
+        display: block;
+        padding: min(200px, calc(12vw + 70px)) 20px;
+        transform: translateX(100%);
+        transition: 0.2s ease-in-out;
+        li{
+            padding: 10px 40px 10px 20px;
+            width: 100%;
+        }
+        &.open{
+            transform: none;
+        }
+    }
+    #menu-main-menu{
+        .menu-item-has-children:after{
+            content: '';
+            display: block;
+            width: 20px;
+            height: 20px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" ><path d="m11 11h-7.25c-.414 0-.75.336-.75.75s.336.75.75.75h7.25v7.25c0 .414.336.75.75.75s.75-.336.75-.75v-7.25h7.25c.414 0 .75-.336.75-.75s-.336-.75-.75-.75h-7.25v-7.25c0-.414-.336-.75-.75-.75s-.75.336-.75.75z" fill="%23ffffff"/></svg>');
+            position: absolute;
+            right: 0;
+            top: 14px;
+
+        }
+        .sub-menu{
+            position: relative;
+            transform: none;
+            left: 0;
+            min-width: 100%;
+            border-top: none;
+            margin: 10px 0 20px 0;
+            li{
+                padding: 0;
+                
+                a{
+                    background-color: transparent;
+                    color: white;
+                }
+            }
+        }
+    }
+
+    
+    /* burger */
+    .header__burger{
+        display: block;
+        border: none;
+        background-color: transparent;
+        padding: 3px;
+        position: relative;
+        z-index: 2;
+        width: 30px;
+        height: 30px;
+        svg {
+            width: 30px;
+            overflow: visible;
+        }
+        path{
+            stroke: white;
+            stroke-width: 0.75px;
+            transition: 0.2s ease-in-out;
+        }
+    }
+    .header__burger.open svg path{
+        d: path("M 3 3 L 3 3 M 0 0 L 6 6 M 0 6 L 6 0");
+    }
+}

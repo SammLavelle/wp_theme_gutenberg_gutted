@@ -1,0 +1,20 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 2,
+    "name": "acf/tab",
+    "title": "Tab",
+    "parent": ["acf/tabs"],
+	"icon": "<svg clip-rule='evenodd' fill-rule='evenodd' stroke-linejoin='round' stroke-miterlimit='2' viewBox='0 0 24 17' xmlns='http://www.w3.org/2000/svg'><path d='M 2 1 Q 1 1 1 2 L 1 15 Q 1 16 2 16 L 22 16 Q 23 16 23 15 Q 23 8.5 23 5 Q 23 4 22 4 L 8 4 L 8 2 Q 8 1 7 1 L 2 1 M 7 1 L 14 1 Q 15 1 15 2 L 15 4 M 14 1 L 21 1 Q 22 1 22 2 L 22 4 M 4 7 L 20 7 M 4 10 L 20 10 M 4 13 L 20 13' fill='transparent' stroke='black'/></svg>",
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "render.php"
+    },
+    "supports": {
+        "align": false,
+        "color": {
+            "text": false,
+            "background": false
+        },
+		"jsx": true
+    }
+}

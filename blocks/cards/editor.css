@@ -1,0 +1,21 @@
+/* Cards */
+.cards{
+    display: block;
+}
+.editor-styles-wrapper .cards > .acf-innerblocks-container{
+    display: flex;
+    gap: var(--padding);
+    width: 100%;
+}
+.wp-block-acf-card{
+    flex-basis: 0;
+    flex-grow: 1;
+}
+.card{
+    padding: var(--padding);
+    border: 1px dashed black;
+    min-width: 0;
+    max-width: 100%;
+    height: 100%;
+    margin: 0;
+}

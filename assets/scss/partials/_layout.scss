@@ -1,4 +1,143 @@
-body{
+body {
     margin: 0;
+    overflow-x: hidden;
 }
 
+/* ==========================================================================
+    Vertical space
+    * Set a margin between consecutive top-level blocks
+    * This only applies to blocks in the main body - not the header or footer
+   ========================================================================== */
+
+main, main > .section {
+    >.block {
+        margin-top: var(--margin-row);
+        margin-bottom: var(--margin-row);
+        // remove white space between header and first element if first element has a background
+        &.has-background:first-child{
+            margin-top: 0;
+        }
+         // remove white space between footer and last element if last element has a background
+        &.has-background:last-child{
+            margin-bottom: 0;
+        }
+    }
+    // Remove white space between consecutive blocks with backgrounds (colours, or images)
+    >.width--full.has-background +.width--full.has-background {
+        margin-top: calc(var(--margin-row) * -1);
+    }
+}
+main > :is(h1, h2, p, ul, ol):first-child{
+    margin-top: var(--margin-row);
+}
+main > :is(p, ul, ol):last-child{
+    margin-bottom: var(--margin-row);
+}
+.section.has-background{
+    .block:first-child{
+        margin-top: 0;
+    }
+    .block:last-child{
+        margin-bottom: 0;
+    }
+}
+
+
+/* ==========================================================================
+    Widths
+    * Widths can be set by a user in the block editor:
+        * width--narrow
+        * width--default
+        * width--wide
+    
+   ========================================================================== */
+
+// Set default as 100%
+.block{
+    width: 100%;
+}
+// Custom widths apply to top-level blocks
+.section{
+    > .block {
+        width: min(var(--width-default-inset), var(--width-full-inset));
+        &.width--narrow {
+            width: min(var(--width-narrow-inset), var(--width-full-inset));
+        }
+        &.width--full {
+            width: 100%
+        }
+    }
+}
+
+/* ==========================================================================
+    Horizontal justification
+    * Alignments can be set by a user in the block editor but should only apply to narrow blocks.
+   ========================================================================== */
+
+// Default
+.width--default,
+.width--full{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.width--narrow{
+    margin-left: 0;
+    margin-right: auto;
+    .align--left {
+        margin-left: 0;
+        margin-right: auto;
+    }
+    .align--right {
+        margin-left: auto;
+        margin-right: 0;
+    }
+    .align--center {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+}
+
+// Top level narrow blocks
+// Left margin is set so narrow blocks line up with left of wide blocks.
+.section > .width--narrow{
+    margin-left: var(--narrow-alignment);
+    margin-right: auto;
+    &.align--left{
+        margin-left: var(--narrow-alignment);
+        margin-right: auto;
+    }
+    &.align--right{
+        margin-left: auto;
+        margin-right: var(--narrow-alignment);
+    }
+    &.align--center {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* ==========================================================================
+    Padding
+    * Blocks with backgrounds, borders, box shadows (a defined outline) or - require padding so content doesn't hit the edges of the boxes
+   ========================================================================== */
+
+// Default
+.has-background, 
+.has-box{
+    padding: var(--padding-panel);
+}
+
+// Top level
+main {
+    >.has-background,
+    >.has-box {
+        padding: var(--padding-banner) var(--gutter);
+    }
+}
+header {
+    >.has-background{
+        padding: 10px var(--gutter);
+    }
+}

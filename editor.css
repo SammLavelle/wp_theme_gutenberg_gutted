@@ -1,0 +1,132 @@
+/* ---- General layout & spacing ---- */
+:root{
+    --padding : 30px;
+}
+html :where(.editor-styles-wrapper){
+    padding: 0!important;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+/* Fixing default styles which break things */
+*{
+    float: none!important;
+}
+html :where(.wp-block)[data-align=left], html :where(.wp-block)[data-align=right]{
+    height: auto!important;
+}
+
+/* Give blocks definitions */
+.block{
+    max-width: 100%;
+    padding: var(--padding);
+    border: 1px dashed black;
+}
+
+/* Widths & Alignments */
+.acf-innerblocks-container{
+    display: block;
+    width: 100%;
+}
+.is-root-container > div.wp-block,
+.section > .acf-innerblocks-container > div.wp-block{
+    width: 100%!important;
+    max-width: 100%!important;
+    margin: 60px auto ;
+}
+.wp-block:has(>.width--default){
+    margin-left: auto;
+    margin-right: auto;
+}
+.is-root-container > div.wp-block:has(>.width--narrow),
+.acf-innerblocks-container > div.wp-block:has(>.width--narrow){
+    width: 960px!important;
+    max-width: 100%!important;
+}
+.is-root-container > div.wp-block:has(>.width--default),
+.acf-innerblocks-container > div.wp-block:has(>.width--default){
+    width: 1200px!important;
+    max-width: 100%!important;
+}
+.is-root-container > div.wp-block:has(>.width--full),
+.acf-innerblocks-container > div.wp-block:has(>.width--full){
+    width: 100%!important;
+}
+.is-root-container > div.wp-block:has(>.width--narrow){
+    max-width: 80%!important;
+}
+.is-root-container > div.wp-block:has(>.width--default){
+    max-width: 90%!important;
+}
+
+.is-root-container > :not(div),
+.wp-block-post-title,
+.check-list,
+div.wp-block.block-list-appender.block-list-appender.block-list-appender.block-list-appender.block-list-appender.block-list-appender.block-list-appender.block-list-appender{
+    width: 1200px!important;
+    max-width: 90%!important;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div.wp-block:has(>.align--center){
+    margin-left: auto;
+    margin-right: auto;
+}
+div.wp-block:has(>.width--narrow.align--left){
+    margin-left: max(calc((100% - 1200px) / 2), 5%);
+}
+div.wp-block:has(>.width--narrow.align--right){
+    margin-right: max(calc((100% - 1200px) / 2), 5%);
+}
+
+/* adjust placement of + button */
+.block-editor-block-list__block div.block-list-appender.wp-block{
+    right: -30px;
+    bottom: -30px;
+    width: auto!important;
+    margin: 0;
+}
+
+
+/* elements */
+
+.is-root-container :is(h2, h3, h4, h5, h6, p):first-child{
+    margin-top: 0;
+}
+
+.is-root-container :is(h2, h3, h4, h5, h6, p, li, blockquote, a:not(.button)),
+h1{
+    font-family: 'OpenSans', sans-serif;
+    line-height: 1.4em!important;
+
+}
+
+ul.is-style-columns-2{
+    columns: 2;
+    column-gap: var(--padding);
+}
+@media(max-width: 640px){
+    .is-style-columns-2{
+        columns: 1;
+    }
+}
+li {
+	break-inside: avoid-column;
+    margin-bottom: 10px;
+}
+a {
+	text-decoration: underline;
+	color: inherit;
+}
+.has-white-color,
+.has-white-color .block{
+    border-color: white;
+}
+
+.align--center{
+    margin-left: auto;
+    margin-right: auto;
+}

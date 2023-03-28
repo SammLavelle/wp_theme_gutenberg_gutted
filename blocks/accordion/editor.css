@@ -1,0 +1,5 @@
+.accordion__content{
+    border: 1px dashed black;
+    margin-top: 30px;
+    padding: var(--padding);
+}

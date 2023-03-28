@@ -1,0 +1,21 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 2,
+    "name": "acf/icon-text",
+    "title": "Icon & Text",
+    "icon": "<svg clip-rule='evenodd' fill-rule='evenodd' stroke-linejoin='round' stroke-miterlimit='2' viewBox='0 0 61 24' xmlns='http://www.w3.org/2000/svg'><path d='M 17 22.621 l -3.521 -6.795 c -0.008 0.004 -1.974 0.97 -2.064 1.011 c -2.24 1.086 -6.799 -7.82 -4.609 -8.994 l 2.083 -1.026 l -3.493 -6.817 l -2.106 1.039 c -7.202 3.755 4.233 25.982 11.6 22.615 c 0.121 -0.055 2.102 -1.029 2.11 -1.033 z M 21 9 L 60 9 L 60 13 L 21 13 L 21 9' /></svg>",
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "render.php"
+    },
+    "supports": {
+        "align": false,
+        "color": {
+            "text": false,
+            "background": false
+        },
+		"jsx": true
+    },
+    "style": "file:style.css",
+    "editorStyle": "file:editor.css"
+}

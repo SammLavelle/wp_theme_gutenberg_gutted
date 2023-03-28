@@ -1,0 +1,15 @@
+:root {
+    --width-full: 100%;
+    --width-default: 90rem;
+    --width-narrow: 60rem;
+    --width-text: 60rem;
+    --width-full-inset: calc(100% - var(--gutter) * 2);
+    --width-default-inset: calc(var(--width-default) - var(--gutter) * 2);
+    --width-narrow-inset: calc(var(--width-narrow) - var(--gutter) * 2);
+    --width-text-inset: calc(var(--width-text) - var(--gutter) * 2);
+}
+
+// Media query breakpoints need to be written an sass variables - you can't use css varialbes in media queries. 
+$lg: 1024px;
+$md: 768px;
+$sm: 480px;

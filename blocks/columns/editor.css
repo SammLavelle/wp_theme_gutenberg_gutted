@@ -1,0 +1,18 @@
+/* Columns */
+.columns > .acf-innerblocks-container{
+    display: flex!important;
+    gap: var(--padding);
+}
+
+.wp-block-acf-column{
+    width: 0;
+    flex-grow: 1;
+}
+.column{
+    padding: var(--padding);
+    border: 1px dashed black;
+    min-width: 0;
+    max-width: 100%;
+    height: 100%;
+    margin: 0;
+}

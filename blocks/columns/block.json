@@ -1,0 +1,25 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 2,
+	"name": "acf/columns",
+	"title": "Columns",
+	"category": "design",
+	"icon": "<svg clip-rule='evenodd' fill-rule='evenodd' stroke-linejoin='round' stroke-miterlimit='2' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M 0 4 L 10 4 M 0 8 L 10 8 M 0 12 L 10 12 M 0 16 L 10 16 M 0 20 L 7 20 M 14 4 L 24 4 M 14 8 L 24 8 M 14 12 L 24 12 M 14 16 L 24 16 M 14 20 L 22 20' fill-rule='nonzero' fill='transparent' stroke='black' /></svg>",
+	"keywords": [
+		"column"
+	],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php"
+	},
+	"supports": {
+		"align": false,
+		"color": {
+            "text": true,
+            "background": true
+        },
+		"jsx": true
+	},
+    "style": "file:style.css",
+	"editorStyle": "file:editor.css"
+}

@@ -1,0 +1,24 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 2,
+	"name": "acf/button",
+	"title": "Button",
+	"category": "text",
+	"icon": "button",
+	"keywords": [
+		"link", 
+		"button"
+	],
+	"supports": {
+        "align": true,
+		"color": {
+            "text": false,
+            "background": false
+        }
+    },
+	"acf": {
+		"mode": "edit",
+		"renderTemplate": "render.php"
+	},
+    "style": "file:style.css"
+}

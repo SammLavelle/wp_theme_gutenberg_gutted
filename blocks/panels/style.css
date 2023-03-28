@@ -1,0 +1,51 @@
+/* ==========================================================================
+    Structure
+   ========================================================================== */
+.panels {
+    display: flex;
+}
+/* Sets panels to take up an equal amount of space */
+.panel{
+    flex-basis: 100%;
+    padding: var(--padding-panel);
+}
+
+/* ==========================================================================
+    Full width block with 2 panels
+    * If panels are full width, bring the text in to line up with the left and right of the default-width.
+    * This is done to reduce the length of text down to a comfortable level, and matches the default-width for aesthetics.
+   ========================================================================== */
+
+main > .panels.width--full > .panel:first-child:nth-last-child(2) .panel__inner, 
+main > .panels.width--full > .panel:nth-child(2):last-child .panel__inner {
+    max-width: min(100%, calc(var(--width-default)/2 - var(--padding-panel) * 2));
+}
+main > .panels.width--full > .panel:first-child:nth-last-child(2) .panel__inner {
+    margin-left: auto;
+}
+main > .panels.width--full > .panel:nth-child(2):last-child .panel__inner {
+    margin-right: auto;
+}
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+
+/* Turn into a 50/50 grid on tablet */
+@media(max-width: 1024px) {
+    .panels {
+        flex-wrap: wrap;
+    }
+
+    .panel{
+        flex-basis: 50%;
+        flex-grow: 0;
+    }
+}
+
+/* Stack 'em on mobile */
+@media(max-width: 768px) {
+    .panel{
+        flex-basis: 100%;
+    }
+}

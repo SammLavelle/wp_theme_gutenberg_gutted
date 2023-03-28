@@ -1,0 +1,22 @@
+.blog__feed{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: var(--gap);
+}
+.blog__link{
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    > img{
+        order: -1;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 3/2;
+        object-fit: cover;
+    }
+    &:hover, &:focus{
+        h2{
+            text-decoration: underline;
+        }
+    }
+}

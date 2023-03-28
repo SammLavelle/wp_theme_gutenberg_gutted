@@ -1,0 +1,29 @@
+
+.testimonials__viewport {
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    padding-bottom: 20px;
+}
+.testimonials__slider {
+    display: flex;
+    list-style-type: none;
+    gap: var(--gap);
+}
+.testimonials__slider blockquote{
+    padding: 20px;
+    flex-basis: calc(50% - var(--gap)/2);
+    flex-grow: 1;
+    flex-shrink: 0;
+    margin: 0;
+    border: 1px solid var(--color-text);
+}
+.testimonials__controls {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.testimonials__controls button{
+    border: none;
+    background-color: transparent;
+}

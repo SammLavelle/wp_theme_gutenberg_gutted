@@ -1,0 +1,11 @@
+
+.testimonials__viewport{
+    overflow: visible;
+}
+.testimonials__slider{
+    display: block;
+}
+.testimonials__slider .quote{
+    margin-bottom: 40px;
+    border: 1px dashed black;
+}

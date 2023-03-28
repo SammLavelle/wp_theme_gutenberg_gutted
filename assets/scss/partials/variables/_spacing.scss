@@ -1,0 +1,78 @@
+/*
+    ** Space sizes
+    * https://utopia.fyi/space/calculator?c=320,10,1.125,1140,20,1.2,8,1,&s=0.5,2|3|4|5|6|8,s-l 
+*/
+:root {
+    --fluid-min-width: 320;
+    --fluid-max-width: 1140;
+    --fluid-screen: 100vw;
+    --fluid-bp: calc((var(--fluid-screen) - var(--fluid-min-width) / 16 * 1rem) / (var(--fluid-max-width) - var(--fluid-min-width)));
+}
+
+@media screen and (min-width: 1140px) {
+    :root {
+        --fluid-screen: calc(var(--fluid-max-width) * 1px);
+    }
+}
+
+:root {
+    --fc-xs-min: var(--fc-s-min) * 0.5;
+    --fc-xs-max: var(--fc-s-max) * 0.5;
+    --fc-s-min: var(--f-0-min, 10);
+    --fc-s-max: var(--f-0-max, 20);
+    --fc-m-min: var(--fc-s-min) * 2;
+    --fc-m-max: var(--fc-s-max) * 2;
+    --fc-l-min: var(--fc-s-min) * 3;
+    --fc-l-max: var(--fc-s-max) * 3;
+    --fc-xl-min: var(--fc-s-min) * 4;
+    --fc-xl-max: var(--fc-s-max) * 4;
+    --fc-2xl-min: var(--fc-s-min) * 5;
+    --fc-2xl-max: var(--fc-s-max) * 5;
+    --fc-3xl-min: var(--fc-s-min) * 6;
+    --fc-3xl-max: var(--fc-s-max) * 6;
+    --fc-4xl-min: var(--fc-s-min) * 8;
+    --fc-4xl-max: var(--fc-s-max) * 8;
+
+    // 10px -> 5px
+    --space-xs: calc(((var(--fc-xs-min) / 16) * 1rem) + (var(--fc-xs-max) - var(--fc-xs-min)) * var(--fluid-bp));
+    // 20px -> 10px
+    --space-a: calc(((var(--fc-s-min) / 16) * 1rem) + (var(--fc-s-max) - var(--fc-s-min)) * var(--fluid-bp));
+    // 40px -> 20px
+    --space-b: calc(((var(--fc-m-min) / 16) * 1rem) + (var(--fc-m-max) - var(--fc-m-min)) * var(--fluid-bp));
+    // 60px -> 30px
+    --space-c: calc(((var(--fc-l-min) / 16) * 1rem) + (var(--fc-l-max) - var(--fc-l-min)) * var(--fluid-bp));
+    // 80px -> 40px
+    --space-d: calc(((var(--fc-xl-min) / 16) * 1rem) + (var(--fc-xl-max) - var(--fc-xl-min)) * var(--fluid-bp));
+    // 100px -> 50px
+    --space-e: calc(((var(--fc-2xl-min) / 16) * 1rem) + (var(--fc-2xl-max) - var(--fc-2xl-min)) * var(--fluid-bp));
+    // 120px -> 60px
+    --space-f: calc(((var(--fc-3xl-min) / 16) * 1rem) + (var(--fc-3xl-max) - var(--fc-3xl-min)) * var(--fluid-bp));
+    // 160px -> 80px
+    --space-g: calc(((var(--fc-4xl-min) / 16) * 1rem) + (var(--fc-4xl-max) - var(--fc-4xl-min)) * var(--fluid-bp));
+
+
+    // Space between window edge and content
+    --gutter: var(--space-b);
+    // Set as margin-left to line up left of narrow width blocks with default blocks (or margin right for right alignment)
+    --narrow-alignment: max(var(--gutter), calc((100% - var(--width-default-inset)) / 2));
+
+    // Space between internal elements
+    --gap: var(--space-b);
+
+    /* 
+        ** Space between top-level sections
+        * Top & bottom margin should be used to seperate elements with the same background/no background
+        * Top & bottom padding should be used to create space for elements with background colours or images
+    */
+    --margin-row: var(--space-g);
+    --padding-row: var(--space-g);
+
+    // Space between elements
+    --margin-heading-body: 1.5rem;
+    --margin-body: 1.5rem;
+    --margin-body-heading: 2rem;
+    --margin-heading-div: var(--space-b);
+
+    --padding-banner: var(--padding-row);
+    --padding-panel: var(--space-b);
+}
